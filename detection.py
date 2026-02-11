@@ -1,4 +1,5 @@
 TARGET_EVENT = 4624
+EXCLUDED_USER = "bob"
 
 logs = [
     {"event_id": 4624, "user": "admin"},
@@ -9,7 +10,7 @@ logs = [
 matches = []
 
 for log in logs:
-    if log["event_id"] == TARGET_EVENT:
+    if log["event_id"] == TARGET_EVENT and log["user"] != EXCLUDED_USER:
         matches.append(log)
 
 print(matches)
